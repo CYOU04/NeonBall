@@ -5,7 +5,6 @@ public class RotateController : MonoBehaviour
 {
     private float TorqueAmount = 10f;
     private float MaxAngularVelocity = 100f;
-
     private Rigidbody2D Rigidbody2D;
     void Start()
     {
