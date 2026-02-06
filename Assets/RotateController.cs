@@ -19,7 +19,7 @@ public class RotateController : MonoBehaviour
 
         if (input != 0)
         {
-            Rigidbody2D.AddTorque(-input *  TorqueAmount);
+            Rigidbody2D.AddTorque(input *  TorqueAmount);
         }
         if (Mathf.Abs(Rigidbody2D.angularVelocity) > MaxAngularVelocity)
         {
