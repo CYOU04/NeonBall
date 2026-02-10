@@ -6,6 +6,9 @@ public class LauncherController : MonoBehaviour
     public Transform SpawnPoint;
     private float LaunchForce = 10f;
     private GameObject CurrentBall;
+
+    public GameObject BulletPrefab;
+
     void Start()
     {
         
@@ -15,10 +18,10 @@ public class LauncherController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TrySpawnBall();
+            TrySpawn();
         }
     }
-    void TrySpawnBall()
+    void TrySpawn()
     {
         if (CurrentBall == null)
         {
@@ -26,7 +29,7 @@ public class LauncherController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Ball already exists.");
+            SpawnBullet();
         }
     }
     void SpawnBall()
@@ -39,5 +42,9 @@ public class LauncherController : MonoBehaviour
         {
             Rigidbody2D.AddForce(SpawnPoint.up * LaunchForce, ForceMode2D.Impulse);
         }
+    }
+    void SpawnBullet()
+    {
+        Instantiate(BulletPrefab, SpawnPoint.position, transform.rotation);
     }
 }
