@@ -9,6 +9,8 @@ public class LauncherController : MonoBehaviour
 
     public GameObject BulletPrefab;
 
+    public static bool BallExist;
+
     void Start()
     {
         
@@ -29,7 +31,10 @@ public class LauncherController : MonoBehaviour
         }
         else
         {
-            SpawnBullet();
+            if (ShootingCooldown.Instance.Slider.value == 1f)
+            {
+                SpawnBullet();
+            }
         }
     }
     void SpawnBall()
@@ -42,9 +47,12 @@ public class LauncherController : MonoBehaviour
         {
             Rigidbody2D.AddForce(SpawnPoint.up * LaunchForce, ForceMode2D.Impulse);
         }
+
+        BallExist = true;
     }
     void SpawnBullet()
     {
+        ShootingCooldown.Instance.Slider.value = 0f;
         Instantiate(BulletPrefab, SpawnPoint.position, transform.rotation);
     }
 }

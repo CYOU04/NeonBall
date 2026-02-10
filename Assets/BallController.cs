@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class BallController : MonoBehaviour
 {
-    private float SpringForce = 8f;
+    private float SpringForce = 10f;
 
 
     private Rigidbody2D Rigidbody2D;

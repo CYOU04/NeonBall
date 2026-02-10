@@ -27,6 +27,7 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
             Debug.Log("Ball destroyed");
+            LauncherController.BallExist = false;
         }
     }
 }
