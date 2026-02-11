@@ -1,22 +1,21 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class RotateController : MonoBehaviour
+public class OuterCircleController : MonoBehaviour
 {
-    private float RotationSpeed = 100f;
+    private float RotationSpeed = -100f;
     private Rigidbody2D Rigidbody2D;
     void Start()
     {
-        Application.targetFrameRate = 60;
         Rigidbody2D = GetComponent<Rigidbody2D>();
     }
-    void Update()
-    {
 
-    }
     private void FixedUpdate()
     {
         float NewAngle = Rigidbody2D.rotation + RotationSpeed * Time.fixedDeltaTime;
         Rigidbody2D.MoveRotation(NewAngle);
+    }
+    void Update()
+    {
+
     }
 }

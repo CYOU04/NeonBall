@@ -4,8 +4,6 @@ using UnityEngine.UIElements;
 public class BallController : MonoBehaviour
 {
     private float SpringForce = 10f;
-
-
     private Rigidbody2D Rigidbody2D;
 
     void Start()
@@ -25,12 +23,23 @@ public class BallController : MonoBehaviour
 
             Vector2 SpringDirection = (CenterPoint - HitPoint).normalized;
 
-            Rigidbody2D.AddForce(SpringDirection *  SpringForce, ForceMode2D.Impulse);
+            Rigidbody2D.linearVelocity = SpringDirection * SpringForce;
         }
     }
 
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (ExitController.beShot == true)
+        {
+            Destroy(gameObject);
+            Debug.Log("Level Completed!");
+            LauncherController.BallExist = false;
+            ExitController.beShot = false;
+        }
     }
 }

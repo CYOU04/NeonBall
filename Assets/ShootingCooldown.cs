@@ -6,7 +6,7 @@ public class ShootingCooldown : MonoBehaviour
     public static ShootingCooldown Instance;
 
     public Slider Slider;
-    private float RecoverySpeed = 0.5f;
+    private float RecoverySpeed = 1f;
     void Start()
     {
 

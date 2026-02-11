@@ -4,6 +4,7 @@ public class BulletController : MonoBehaviour
 {
     private float Speed = 25f;
     private Rigidbody2D Rigidbody2D;
+
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -13,9 +14,15 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ExitController.beShot = true;
+
+        Debug.Log("Exit actived");
+    }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Circle"))
@@ -25,9 +32,9 @@ public class BulletController : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             Destroy(gameObject);
-            Destroy(other.gameObject);
-            Debug.Log("Ball destroyed");
-            LauncherController.BallExist = false;
+            //Destroy(other.gameObject);
+            //Debug.Log("Ball destroyed");
+            //LauncherController.BallExist = false;
         }
     }
 }
