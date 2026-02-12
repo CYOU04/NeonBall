@@ -10,10 +10,7 @@ public class BallController : MonoBehaviour
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
     }
-    private void FixedUpdate()
-    {
 
-    }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Circle"))
@@ -24,6 +21,19 @@ public class BallController : MonoBehaviour
             Vector2 SpringDirection = (CenterPoint - HitPoint).normalized;
 
             Rigidbody2D.linearVelocity = SpringDirection * SpringForce;
+        }
+        if (other.gameObject.CompareTag("DeadBall"))
+        {
+            Vector2 OutDirection = (transform.position - other.transform.position).normalized;
+            Vector2 RandomDirection = Random.insideUnitCircle.normalized;
+
+            if (Vector2.Dot(RandomDirection, OutDirection) < 0)
+            {
+                RandomDirection = -RandomDirection;
+            }
+
+            Rigidbody2D.linearVelocity = Vector2.zero;
+            Rigidbody2D.linearVelocity = RandomDirection * SpringForce;
         }
     }
 

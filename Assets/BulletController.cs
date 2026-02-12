@@ -5,6 +5,8 @@ public class BulletController : MonoBehaviour
     private float Speed = 25f;
     private Rigidbody2D Rigidbody2D;
 
+    public GameObject DeadBall;
+
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -31,10 +33,18 @@ public class BulletController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Ball"))
         {
+            Vector2 DeadBallPosition = other.gameObject.transform.position;
+            Vector3 DeadBallSpawnPosition = new Vector3(DeadBallPosition.x, DeadBallPosition.y, 0f);
+            Instantiate(DeadBall, DeadBallSpawnPosition, Quaternion.identity);
+
             Destroy(gameObject);
-            //Destroy(other.gameObject);
-            //Debug.Log("Ball destroyed");
-            //LauncherController.BallExist = false;
+            Destroy(other.gameObject);
+            Debug.Log("Ball destroyed");
+            LauncherController.BallExist = false;
+        }
+        if (other.gameObject.CompareTag("DeadBall"))
+        {
+            Destroy(gameObject);
         }
     }
 }
