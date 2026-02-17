@@ -17,10 +17,12 @@ public class BallController : MonoBehaviour
         {
             Vector2 HitPoint = other.contacts[0].point;
             Vector2 CenterPoint = (Vector2)other.transform.position;
-
             Vector2 SpringDirection = (CenterPoint - HitPoint).normalized;
 
-            Rigidbody2D.linearVelocity = SpringDirection * SpringForce;
+            float RandomAngle = Random.Range(-10f, 10f);
+            Vector2 FinalDirection = Quaternion.Euler(0, 0, RandomAngle) * SpringDirection;
+
+            Rigidbody2D.linearVelocity = FinalDirection * SpringForce;
         }
         if (other.gameObject.CompareTag("DeadBall"))
         {
@@ -44,12 +46,8 @@ public class BallController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (ExitController.beShot == true)
-        {
-            Destroy(gameObject);
-            Debug.Log("Level Completed!");
-            LauncherController.BallExist = false;
-            ExitController.beShot = false;
-        }
+        Destroy(gameObject);
+        Debug.Log("Level Completed!");
+        LauncherController.BallExist = false;
     }
 }

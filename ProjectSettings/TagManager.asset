@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - Mirror
   - DeadBall
+  - Trap
   layers:
   - Default
   - TransparentFX
