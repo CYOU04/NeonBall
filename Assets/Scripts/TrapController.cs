@@ -30,6 +30,7 @@ public class TrapController : MonoBehaviour
         {
             Vector2 DeadPosition = Ball.transform.position;
             Destroy(Ball);
+            LifeController.Life -= 1;
             Instantiate(DeadBall, DeadPosition, Quaternion.identity);
             LauncherController.BallExist = false;
         }

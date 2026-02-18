@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class TimeController : MonoBehaviour
 {
     public Slider Timer;
+
     void Start()
     {
         Timer.value = Timer.maxValue;
@@ -19,6 +20,7 @@ public class TimeController : MonoBehaviour
         else
         {
             SceneManager.LoadScene("GameOver");
+            ResultController.ResultText = "Time out";
         }
     }
 }

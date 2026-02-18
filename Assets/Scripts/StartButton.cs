@@ -18,5 +18,7 @@ public class StartButton : MonoBehaviour
     {
         SceneManager.LoadScene("Stage");
         LauncherController.BallExist = false;
+        LifeController.Life = 4;
+        ResultController.ResultText = "";
     }
 }

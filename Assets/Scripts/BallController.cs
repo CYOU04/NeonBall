@@ -50,5 +50,6 @@ public class BallController : MonoBehaviour
         Debug.Log("Completed!");
         LauncherController.BallExist = false;
         SceneManager.LoadScene("GameOver");
+        ResultController.ResultText = "Completed";
     }
 }
