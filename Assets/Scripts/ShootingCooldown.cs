@@ -20,11 +20,11 @@ public class ShootingCooldown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LauncherController.BallExist == false)
-        {
-            Slider.value = 0f;
-            return;
-        }
+        // if (LauncherController.BallExist == false)
+        // {
+        //     Slider.value = 0f;
+        //     return;
+        // }
         if (Slider.value < 1f)
         {
             Slider.value += RecoverySpeed * Time.deltaTime;

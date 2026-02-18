@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeController : MonoBehaviour
 {
     public Slider Timer;
     void Start()
     {
-        Timer.value = 60f;
+        Timer.value = Timer.maxValue;
     }
 
     void Update()
@@ -17,7 +18,7 @@ public class TimeController : MonoBehaviour
         }
         else
         {
-
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
