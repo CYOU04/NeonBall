@@ -1,9 +1,10 @@
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class LauncherController : MonoBehaviour
 {
     public GameObject BallPrefab;
-    public Transform SpawnPoint;
+    public Transform SpawnPoint; 
     private float LaunchForce = 10f;
     private GameObject CurrentBall;
 
@@ -38,7 +39,11 @@ public class LauncherController : MonoBehaviour
         {
             Rigidbody2D.AddForce(SpawnPoint.up * LaunchForce, ForceMode2D.Impulse);
         }
-
+        BallExistSet();
+    }
+    private async void BallExistSet()
+    {
+        await Task.Delay(10);
         BallExist = true;
     }
 }

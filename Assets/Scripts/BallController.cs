@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class BallController : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class BallController : MonoBehaviour
             Vector2 CenterPoint = (Vector2)other.transform.position;
             Vector2 SpringDirection = (CenterPoint - HitPoint).normalized;
 
-            float RandomAngle = Random.Range(-10f, 10f);
+            float RandomAngle = Random.Range(-15f, 15f);
             Vector2 FinalDirection = Quaternion.Euler(0, 0, RandomAngle) * SpringDirection;
 
             Rigidbody2D.linearVelocity = FinalDirection * SpringForce;
@@ -47,7 +47,8 @@ public class BallController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
-        Debug.Log("Level Completed!");
+        Debug.Log("Completed!");
         LauncherController.BallExist = false;
+        SceneManager.LoadScene("GameOver");
     }
 }

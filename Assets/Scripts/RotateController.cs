@@ -12,14 +12,12 @@ public class RotateController : MonoBehaviour
     }
     void Update()
     {
-        float Horizontal = Input.GetAxis("Horizontal");
-
-        if (Horizontal < 0 && ShootingCooldown.Instance.Slider.value == 1f && Direction != -1f)
+        if (Input.GetKeyDown(KeyCode.Space) && ShootingCooldown.Instance.Slider.value == 1f && Direction != -1f && LauncherController.BallExist == true)
         {
             Direction = -1f;
             ShootingCooldown.Instance.Slider.value = 0f;
         }
-        if (Horizontal > 0 && ShootingCooldown.Instance.Slider.value == 1f && Direction != 1f)
+        if (Input.GetKeyDown(KeyCode.Space) && ShootingCooldown.Instance.Slider.value == 1f && Direction != 1f && LauncherController.BallExist == true)
         {
             Direction = 1f;
             ShootingCooldown.Instance.Slider.value = 0f;

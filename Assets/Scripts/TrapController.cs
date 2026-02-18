@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TrapController : MonoBehaviour
@@ -18,12 +19,18 @@ public class TrapController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
         {
-            Vector2 DeadBallPosition = other.gameObject.transform.position;
-            Vector3 DeadBallSpawnPosition = new Vector3(DeadBallPosition.x, DeadBallPosition.y, 0f);
-            Instantiate(DeadBall, DeadBallSpawnPosition, Quaternion.identity);
+            StartCoroutine(DeathTimer(other.gameObject));
+        }
+    }
+    private IEnumerator DeathTimer(GameObject Ball)
+    {
+        yield return new WaitForSeconds(0.075f);
 
-            Destroy(other.gameObject);
-            Debug.Log("Ball destroyed");
+        if (Ball != null)
+        {
+            Vector2 DeadPosition = Ball.transform.position;
+            Destroy(Ball);
+            Instantiate(DeadBall, DeadPosition, Quaternion.identity);
             LauncherController.BallExist = false;
         }
     }
