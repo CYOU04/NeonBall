@@ -7,7 +7,7 @@ public class OuterCircleController : MonoBehaviour
     private Rigidbody2D Rigidbody2D;
 
     private SpriteRenderer SpriteRenderer;
-    public float GlowSpeed = 2f;
+    private float LerpSpeed = 2f;
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -17,7 +17,7 @@ public class OuterCircleController : MonoBehaviour
     {
         Direction = -RotateController.Direction;
 
-        float Lerp = Mathf.PingPong(Time.time * GlowSpeed, 1);
+        float Lerp = Mathf.PingPong(Time.time * LerpSpeed, 1);
         SpriteRenderer.color = Color.Lerp(Color.blue, Color.red, Lerp);
     }
     private void FixedUpdate()
