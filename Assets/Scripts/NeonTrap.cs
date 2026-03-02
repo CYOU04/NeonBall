@@ -1,11 +1,7 @@
 using UnityEngine;
 
-public class OuterCircleController : MonoBehaviour
+public class NeonTrap : MonoBehaviour
 {
-    private float RotationSpeed = 100f;
-    private float Direction;
-    private Rigidbody2D Rigidbody2D;
-
     private SpriteRenderer SpriteRenderer;
     private float LerpSpeed = 1f;
 
@@ -13,19 +9,12 @@ public class OuterCircleController : MonoBehaviour
     private readonly Color ColorB = new Color(1f, 0.1f, 0.8f);
     void Start()
     {
-        Rigidbody2D = GetComponent<Rigidbody2D>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     void Update()
     {
-        Direction = -RotateController.Direction;
-
         float Lerp = Mathf.PingPong(Time.time * LerpSpeed, 1f);
         SpriteRenderer.color = Color.Lerp(ColorA, ColorB, Lerp);
-    }
-    private void FixedUpdate()
-    {
-        float NewAngle = Rigidbody2D.rotation + (RotationSpeed * Time.fixedDeltaTime * Direction);
-        Rigidbody2D.MoveRotation(NewAngle);
     }
 }

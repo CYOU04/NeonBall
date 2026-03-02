@@ -5,7 +5,6 @@ public class BallController : MonoBehaviour
 {
     private float SpringForce = 10f;
     private Rigidbody2D Rigidbody2D;
-
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
