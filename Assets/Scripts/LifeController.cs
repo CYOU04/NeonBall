@@ -5,6 +5,8 @@ public class LifeController : MonoBehaviour
 {
     public static float Life = 4;
     public TextMeshProUGUI LifeText;
+
+    private bool isEnding = false;
     void Start()
     {
         
@@ -13,10 +15,20 @@ public class LifeController : MonoBehaviour
     void Update()
     {
         LifeText.text = Life.ToString();
-        if (Life <= 0)
+
+        if (Life <= 0 && !isEnding)
         {
-            SceneManager.LoadScene("GameOver");
+            isEnding = true;
             ResultController.ResultText = "Ball out";
+
+            if (TransitionController.Instance != null)
+            {
+                TransitionController.Instance.LoadSceneWithFade("GameOver");
+            }
+            else
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
     }
 }

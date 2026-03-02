@@ -16,6 +16,13 @@ public class TitleButton : MonoBehaviour
     }
     public void OnButtonClick()
     {
-        SceneManager.LoadScene("Title");
+        if (TransitionController.Instance != null)
+        {
+            TransitionController.Instance.LoadSceneWithFade("Title");
+        }
+        else
+        {
+            SceneManager.LoadScene("Title");
+        }
     }
 }

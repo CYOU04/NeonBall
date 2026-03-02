@@ -49,7 +49,15 @@ public class BallController : MonoBehaviour
         Destroy(gameObject);
         Debug.Log("Completed!");
         LauncherController.BallExist = false;
-        SceneManager.LoadScene("GameOver");
         ResultController.ResultText = "Completed";
+
+        if (TransitionController.Instance != null)
+        {
+            TransitionController.Instance.LoadSceneWithFade("GameOver");
+        }
+        else
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }

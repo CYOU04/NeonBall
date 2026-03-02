@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class TimeController : MonoBehaviour
 {
     public Slider Timer;
+    private bool isEnding = false;
 
     void Start()
     {
@@ -13,14 +14,27 @@ public class TimeController : MonoBehaviour
 
     void Update()
     {
-        if (Timer.value > 0)
+        if (isEnding == false)
         {
-            Timer.value -= Time.deltaTime;
-        }
-        else
-        {
-            SceneManager.LoadScene("GameOver");
-            ResultController.ResultText = "Time out";
+            if (Timer.value > 0)
+            {
+                Timer.value -= Time.deltaTime;
+            }
+            else
+            {
+                isEnding = true;
+
+                ResultController.ResultText = "Time out";
+
+                if (TransitionController.Instance != null)
+                {
+                    TransitionController.Instance.LoadSceneWithFade("GameOver");
+                }
+                else
+                {
+                    SceneManager.LoadScene("GameOver");
+                }
+            }
         }
     }
 }

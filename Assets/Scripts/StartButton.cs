@@ -16,9 +16,17 @@ public class StartButton : MonoBehaviour
     }
     public void OnButtonClick()
     {
-        SceneManager.LoadScene("Stage");
         LauncherController.BallExist = false;
         LifeController.Life = 4;
         ResultController.ResultText = "";
+
+        if (TransitionController.Instance != null)
+        {
+            TransitionController.Instance.LoadSceneWithFade("Stage");
+        }
+        else
+        {
+            SceneManager.LoadScene("Stage");
+        }
     }
 }
