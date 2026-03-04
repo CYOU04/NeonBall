@@ -43,7 +43,7 @@ public class LauncherController : MonoBehaviour
     }
     private async void BallExistSet()
     {
-        await Task.Delay(10);
+        await Task.Delay(10);//Circle reverse
         BallExist = true;
     }
 }

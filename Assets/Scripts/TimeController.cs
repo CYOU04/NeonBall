@@ -40,29 +40,30 @@ public class TimeController : MonoBehaviour
                     SceneManager.LoadScene("GameOver");
                 }
             }
-        }
-        void UpdateVisuals()
+        }       
+    }
+
+    void UpdateVisuals()
+    {
+        if (FillImage == null)
         {
-            if (FillImage == null)
-            {
-                return;
-            }
+            return;
+        }
 
 
-            float Ratio = Timer.value / Timer.maxValue;
+        float Ratio = Timer.value / Timer.maxValue;
 
-            FillImage.color = Color.Lerp(Color2, Color1, Ratio);
+        FillImage.color = Color.Lerp(Color2, Color1, Ratio);
 
-            if (Ratio < 0.25f)
-            {
-                float Blink = Mathf.PingPong(Time.time * 8f, 1f);
-                FillImage.color = Color.Lerp(Color2, Color.white, Blink);
-                Timer.transform.localScale = Vector3.one * (1f + Blink * 0.05f);
-            }
-            else
-            {
-                Timer.transform.localScale = Vector3.one;
-            }
+        if (Ratio < 0.25f)
+        {
+            float Blink = Mathf.PingPong(Time.time * 8f, 1f);
+            FillImage.color = Color.Lerp(Color2, Color.white, Blink);
+            Timer.transform.localScale = Vector3.one * (1f + Blink * 0.05f);
+        }
+        else
+        {
+            Timer.transform.localScale = Vector3.one;
         }
     }
 }

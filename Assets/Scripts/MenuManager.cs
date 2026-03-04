@@ -23,7 +23,7 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-    public void Resume()
+    void Resume()
     {
         PauseMenu.SetActive(false);
         Time.timeScale = 1;

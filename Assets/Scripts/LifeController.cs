@@ -9,7 +9,8 @@ public class LifeController : MonoBehaviour
     private bool isEnding = false;
     void Start()
     {
-        
+        Life = 4;
+        isEnding = false;
     }
 
     void Update()

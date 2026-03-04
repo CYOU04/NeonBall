@@ -5,17 +5,14 @@ public class TrapController : MonoBehaviour
 {
     public GameObject DeadBall;
 
-    //private SpriteRenderer SpriteRenderer;
-    //private float LerpSpeed = 2f;
     void Start()
     {
-        //SpriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     void Update()
     {
-        //float Lerp = Mathf.PingPong(Time.time * LerpSpeed, 1);
-        //SpriteRenderer.color = Color.Lerp(Color.blue, Color.red, Lerp);
+
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
