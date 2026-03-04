@@ -584,8 +584,8 @@ RectTransform:
   - {fileID: 764167991}
   - {fileID: 1526337785}
   - {fileID: 692972569}
-  - {fileID: 933083131}
   - {fileID: 2039657491}
+  - {fileID: 933083131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1011,8 +1011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.5752, y: 13.009}
-  m_SizeDelta: {x: 1702.8496, y: 899.9821}
+  m_AnchoredPosition: {x: 95.206, y: -34.63}
+  m_SizeDelta: {x: 1729.5889, y: 769.2595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2039657492
 MonoBehaviour:
@@ -1038,24 +1038,9 @@ MonoBehaviour:
     Expected Graduation: March 2027
 
     Email
-    Address: TC22503016@akademeia21.education
-
-
-    My second major Unity project,
-    focusing on pushing technical boundaries beyond previous works.
-
-    Key Enhancements:
-
-
-    Visual
-    Effects: Implemented advanced post-processing and HDR neon aesthetics using URP.
-
-
-    Physics:
-    Engineered custom collision logic to ensure high-fidelity physical feedback within
-    circular constraints.'
+    Address: TC22503016@akademeia21.education'
   EnglishFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  JapaneseContent: "\u540D\u524D\uFF1A\u30C1\u30E7\u30A6\u3000\u30B7\u30AC\u30AF\n\u5B66\u6821\uFF1A\u5C02\u9580\u5B66\u6821\u6771\u4EAC\u30AF\u30FC\u30EB\u30B8\u30E3\u30D1\u30F3\u30FB\u30A2\u30AB\u30C7\u30DF\u30FC\n\u5C02\u653B\uFF1A\u30B2\u30FC\u30E0\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\n\u5B66\u751F\u756A\u53F7\uFF1A22503016\n\u5352\u696D\u4E88\u5B9A\uFF1A2027\u5E743\u6708\n\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\uFF1ATC22503016@akademeia21.education\n\n\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8\u6982\u8981\n\u81EA\u4E3B\u5236\u4F5C\u7B2C2\u5F3E\u3002URP\u306B\u3088\u308B\u30CD\u30AA\u30F3\u30D3\u30B8\u30E5\u30A2\u30EB\u306E\u5F37\u5316\u3068\u3001\u5186\u5F62\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u304A\u3051\u308B\u7269\u7406\u6319\u52D5\uFF08\u885D\u7A81\u30FB\u53CD\u5C04\uFF09\u306E\u6700\u9069\u5316\u306B\u6CE8\u529B\u3002\u524D\u4F5C\u3092\u30D9\u30FC\u30B9\u306B\u6280\u8853\u7684\u5B8C\u6210\u5EA6\u3092\u8FFD\u6C42\u3057\u307E\u3057\u305F\u3002"
+  JapaneseContent: "\u540D\u524D\uFF1A\u30C1\u30E7\u30A6\u3000\u30B7\u30AC\u30AF\n\u5B66\u6821\uFF1A\u5C02\u9580\u5B66\u6821\u6771\u4EAC\u30AF\u30FC\u30EB\u30B8\u30E3\u30D1\u30F3\u30FB\u30A2\u30AB\u30C7\u30DF\u30FC\n\u5C02\u653B\uFF1A\u30B2\u30FC\u30E0\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\n\u5B66\u751F\u756A\u53F7\uFF1A22503016\n\u5352\u696D\u4E88\u5B9A\uFF1A2027\u5E743\u6708\n\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\uFF1ATC22503016@akademeia21.education"
   JapaneseFont: {fileID: 11400000, guid: 83fce9381d9dd064682b918ea80d467f, type: 2}
 --- !u!114 &2039657493
 MonoBehaviour:
@@ -1077,7 +1062,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: About Me
+  m_text: 'Name: ZHANG SIYUE
+
+    School: TOKYO COOL JAPAN ACADEMY
+
+    Major: Game
+    Programmer
+
+    Student ID: 22503016
+
+    Expected Graduation: March 2027
+
+    Email
+    Address: TC22503016@akademeia21.education'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1104,8 +1101,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
