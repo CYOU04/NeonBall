@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleButton : MonoBehaviour
 {
+    private bool isClicked = false;
     void Start()
     {
         
@@ -14,6 +15,11 @@ public class TitleButton : MonoBehaviour
     }
     public void OnButtonClick()
     {
+        if (isClicked == true)
+        {
+            return;
+        }
+        isClicked = true;
         if (TransitionController.Instance != null)
         {
             TransitionController.Instance.LoadSceneWithFade("Title");
