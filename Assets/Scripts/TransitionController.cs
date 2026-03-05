@@ -11,6 +11,7 @@ public class TransitionController : MonoBehaviour
     private float FadeSpeed = 1.5f;
 
     private bool isTransitioning = false;
+    private Coroutine CurrentTransition;
 
     void Awake()
     {
@@ -26,7 +27,7 @@ public class TransitionController : MonoBehaviour
             return;
         }
     }
-    private void ResetUI()
+    public void ResetUI()
     {
         if (CanvasGroup != null)
         {
@@ -50,7 +51,7 @@ public class TransitionController : MonoBehaviour
         {
             return;
         }
-        StartCoroutine(TransitionRoutine(SceneName));
+        CurrentTransition = StartCoroutine(TransitionRoutine(SceneName));
     }
     IEnumerator TransitionRoutine(string SceneName)
     {
@@ -67,7 +68,7 @@ public class TransitionController : MonoBehaviour
         {
             yield return null;
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
         while (CanvasGroup.alpha > 0f)
         {
             CanvasGroup.alpha -= Time.deltaTime * FadeSpeed;
@@ -76,9 +77,24 @@ public class TransitionController : MonoBehaviour
 
         ResetUI();
         isTransitioning = false;
+        CurrentTransition = null;
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            RemoveTransition();
+        }
+    }
+    public void RemoveTransition()
+    {
+        if (CurrentTransition != null)
+        {
+            StopCoroutine(CurrentTransition);
+            CurrentTransition = null;
+        }
+        ResetUI();
+        isTransitioning = false;
+        Debug.Log("Transition removed");
     }
 }
