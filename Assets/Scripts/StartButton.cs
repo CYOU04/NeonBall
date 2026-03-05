@@ -18,6 +18,7 @@ public class StartButton : MonoBehaviour
     }
     public void OnButtonClick()
     {
+        Debug.Log("Start Button Clicked");
         if (isStarting == true)
         {
             return;

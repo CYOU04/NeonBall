@@ -15,6 +15,7 @@ public class TitleButton : MonoBehaviour
     }
     public void OnButtonClick()
     {
+        Debug.Log("Title Button Clicked");
         if (isClicked == true)
         {
             return;
